@@ -8,10 +8,10 @@ namespace InGame
           private float _speed = 10.0f;//移動速度
           [SerializeField]
           private float _mouseSensitivity = 2.0f; // マウス感度
-          [SerializeField]
-          private float _jumpPower = 5.0f; // ジャンプ力
-          [SerializeField]
-          private float _gravity = 9.8f; // 重力
+          // [SerializeField]
+          // private float _jumpPower = 5.0f; // ジャンプ力
+          // [SerializeField]
+          // private float _gravity = 9.8f; // 重力
 
           private CharacterController _controller;
           private Vector3 _moveVelocity;
@@ -33,18 +33,18 @@ namespace InGame
                float moveZ = Input.GetAxis("Vertical") * _speed * Time.deltaTime;
                Vector3 moveDirection = transform.TransformDirection(new Vector3(moveX, 0, moveZ));
 
-                if (_controller.isGrounded)
-               {
-                    _moveVelocity.y = 0f; // 接地しているときはy速度をリセット
+               //  if (_controller.isGrounded)
+               // {
+               //      _moveVelocity.y = 0f; // 接地しているときはy速度をリセット
 
-                    // スペースキーでジャンプ
-                    if (Input.GetKeyDown(KeyCode.Space))
-                    {
-                         _moveVelocity.y = _jumpPower;
-                    }
-               }
+               //      // スペースキーでジャンプ
+               //      if (Input.GetKeyDown(KeyCode.Space))
+               //      {
+               //           _moveVelocity.y = _jumpPower;
+               //      }
+               // }
 
-               _moveVelocity.y -= _gravity * Time.deltaTime;
+               // _moveVelocity.y -= _gravity * Time.deltaTime;
 
                _controller.Move((moveDirection + _moveVelocity) * Time.deltaTime);
 
