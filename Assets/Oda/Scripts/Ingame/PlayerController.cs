@@ -49,11 +49,11 @@ namespace InGame
                _controller.Move((moveDirection + _moveVelocity) * Time.deltaTime);
 
                float mouseX = Input.GetAxis("Mouse X") * _mouseSensitivity;
-               float mouseY = Input.GetAxis("Mouse Y") * _mouseSensitivity;
+               // float mouseY = Input.GetAxis("Mouse Y") * _mouseSensitivity;
 
                transform.Rotate(Vector3.up * mouseX);
 
-               _cameraRotationX -= mouseY;
+               // _cameraRotationX -= mouseY;
                _cameraRotationX = Mathf.Clamp(_cameraRotationX, -90f, 90f);
                _cameraTransform.localRotation = Quaternion.Euler(_cameraRotationX, 0f, 0f);
           }
